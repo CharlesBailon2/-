@@ -34,7 +34,8 @@
       height: auto;
       border-radius: 20px;
       box-shadow: 0 0 30px rgba(0,0,0,0.5);
-      transition: opacity 0.6s ease;
+      transition: opacity 1s ease;
+      opacity: 1;
     }
 
     .message {
@@ -70,13 +71,17 @@
   const centralImage = document.getElementById("centralImage");
 
   function mostrarFondoEImagen(idx) {
-    body.style.backgroundImage = `url('${fondos[idx]}')`;
+
     centralImage.style.opacity = 0;
 
     setTimeout(() => {
+      body.style.backgroundImage = `url('${fondos[idx]}')`;
       centralImage.src = imagenes[idx];
+    }, 600);
+
+    setTimeout(() => {
       centralImage.style.opacity = 1;
-    }, 300);
+    }, 1000);
 
     if (idx === fondos.length - 1) {
       message.style.display = "block";
